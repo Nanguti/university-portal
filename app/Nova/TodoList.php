@@ -3,7 +3,9 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TodoList extends Resource
@@ -20,7 +22,7 @@ class TodoList extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -29,6 +31,10 @@ class TodoList extends Resource
      */
     public static $search = [
         'id',
+        'name',
+        'priority',
+        'status', 
+        'student_id'
     ];
 
     /**
@@ -41,6 +47,19 @@ class TodoList extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('Student'),
+            Select::make('Priority')
+            ->options([
+                'high'=>'High',
+                'normal' => 'Normal',
+                'low'=>'Low'
+            ])
+            ->rules('required'),
+            Select::make('status')
+            ->options([
+                'completed' => 'Completed', 
+                'pending' => 'Pending'
+            ])
         ];
     }
 
