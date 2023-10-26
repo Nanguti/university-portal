@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -44,16 +45,15 @@ class Assignment extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make("name")
+            Text::make("Name")
                 ->required(),
-            Text::make('course_name')
+            BelongsTo::make('Course'),
+            BelongsTo::make('Batch'),
+            DateTime::make('Due Date')
                 ->required(),
-            DateTime::make('due_date')
+            Textarea::make('Instructions')
                 ->required(),
-            Textarea::make('instructions')
-                ->required(),
-            Textarea::make('submission_link')
-                ->required(),
+            Textarea::make('Submission link')
 
         ];
     }

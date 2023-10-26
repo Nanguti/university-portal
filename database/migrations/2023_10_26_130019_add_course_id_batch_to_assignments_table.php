@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-        Schema::create('student_support', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('service_name');
-            $table->string('location');
-            $table->string('contact_information');
-            $table->timestamp('available_hours')->nullable();
+        Schema::table('assignments', function (Blueprint $table) {
+            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('batch_id')->constrained()->cascadeOnDelete();
         });
     }
 
@@ -26,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('studentsupport', function (Blueprint $table) {
+        Schema::table('assignments', function (Blueprint $table) {
             //
         });
     }

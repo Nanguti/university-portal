@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('ccourse_name');
             $table->dateTime('due_date');
             $table->longText('instructions');
             $table->string('submission_link');

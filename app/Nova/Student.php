@@ -47,11 +47,12 @@ class Student extends Resource
         return [
             ID::make()->sortable(),
             Text::make('First Name')->required(),
+            Text::make('Email')->required(),
             Text::make('Last Name')->required(),
             Text::make('Student ID')->required(),
             BelongsTo::make('Course')->required(),
             BelongsTo::make('Batch')->required(),
-            BelongsTo::make('Award')->required()
+            BelongsTo::make('Award')->nullable()
         ];
     }
 

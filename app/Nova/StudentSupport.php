@@ -48,9 +48,9 @@ class StudentSupport extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Service Name')->required(),
-            Text::makae('Location')->required(),
+            Text::make('Location')->required(),
             Text::make('Contact Information')->required(),
-            DateTime::make('Availability Hours')->required()
+            DateTime::make('Available Hours')->required()
             
         ];
     }

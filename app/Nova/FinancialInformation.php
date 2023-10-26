@@ -55,10 +55,11 @@ class FinancialInformation extends Resource
     {
         return [
             ID::make()->sortable(),
-            Number::make('tuition_fee'),
+            Number::make('Tuition Fee')
+                ->required(),
             BelongsTo::make('Student'),
-            DateTime::make('due_date'),
-            Select::make('Payment')
+            DateTime::make('Due Date'),
+            Select::make('Payment Status')
             ->options(
                 [
                     'completed' => 'Completed',
@@ -66,7 +67,7 @@ class FinancialInformation extends Resource
                     'failed' => 'Failed'
                 ]
             ),
-            Select::make('payment_method')
+            Select::make('Payment Method')
                 ->options([
                     'cash'=>'Cash',
                     'bank_stransfer' => 'Bank Transfer'

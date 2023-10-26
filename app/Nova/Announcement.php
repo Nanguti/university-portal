@@ -50,7 +50,7 @@ class Announcement extends Resource
             ID::make()->sortable(),
             Text::make('Title')
                 ->required(),
-            Text::make('Auhtor')
+            Text::make('Author')
                 ->required(),
             Textarea::make('Content')
                 ->required(),

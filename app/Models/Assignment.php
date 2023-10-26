@@ -11,4 +11,18 @@ class Assignment extends Model
     protected $fillable = [
         "name","course_name","due_date","instructions","submission_link",
     ];
+
+    protected $casts = [
+        'due_date' => 'datetime',
+    ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
+    }
 }

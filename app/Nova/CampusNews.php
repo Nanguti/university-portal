@@ -48,9 +48,9 @@ class CampusNews extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('title')->required(),
-            Text::make('author')->required(),
-            Textarea::make('title')->required(),
+            Text::make('Title')->required(),
+            Text::make('Author')->required(),
+            Textarea::make('Content')->required(),
             Image::make('Image')
 
         ];

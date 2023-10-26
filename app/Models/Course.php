@@ -18,4 +18,7 @@ class Course extends Model
     public function batches(){
         return $this->hasMany(Batch::class);
     }
+    public function assignments(){
+        return $this->hasMany(Assignment::class);
+    }
 }

@@ -9,10 +9,16 @@ class StudentSupport extends Model
 {
     use HasFactory;
 
+    protected $table = "studentsupport";
+
     protected $fillable = [
         'service_name',
         'location',
         'contact_information',
-        'availability_hours'
+        'available_hours'
+    ];
+
+    protected $casts = [
+        'available_hours' => 'datetime',
     ];
 }

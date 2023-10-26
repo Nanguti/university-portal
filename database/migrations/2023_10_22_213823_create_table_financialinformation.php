@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
       
-        Schema::create('financialinformation', function (Blueprint $table) {
+        Schema::create('financial_information', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tuition_fee');
             $table->dateTime('due_date');
