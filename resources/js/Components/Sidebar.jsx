@@ -29,7 +29,7 @@ const Sidebar = () => {
                     <li className="nav-item">
                         <a className="nav-link collapsed" href="pages-faq.html">
                             <i className="bi bi-question-circle" />
-                            <span>F.A.Q</span>
+                            <span>Grades</span>
                         </a>
                     </li>
                     {/* End F.A.Q Page Nav */}
@@ -39,7 +39,7 @@ const Sidebar = () => {
                             href="pages-contact.html"
                         >
                             <i className="bi bi-envelope" />
-                            <span>Contact</span>
+                            <span>Library</span>
                         </a>
                     </li>
                     {/* End Contact Page Nav */}

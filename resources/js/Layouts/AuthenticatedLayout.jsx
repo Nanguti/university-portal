@@ -12,7 +12,7 @@ export default function Authenticated({ user, header, children }) {
         <>
             <Header user={user} header={header}></Header>;
             <Sidebar />
-            {children}
+            <div className="min-h-screen">{children}</div>
             <Footer />
         </>
     );
