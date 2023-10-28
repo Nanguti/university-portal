@@ -67,7 +67,6 @@ class Student extends Resource
                 ->hideWhenUpdating(),
             HasMany::make("Marks", 'marks', Marks::class),
             Text::make('Award')->exceptOnForms()->resolveUsing(function () {
-            // Retrieve the student's award based on your calculation logic
             return $this->getAward($this);
         }),
         ];

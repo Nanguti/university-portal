@@ -65,7 +65,11 @@ class Award extends Model
             
         }
        
-        return $award;
+        return [
+            'award' => $award,
+            'units' => $resultCount,
+            'averagePercentage' => $averagePercentage
+        ];
     }
     
 }

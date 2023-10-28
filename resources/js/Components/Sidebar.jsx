@@ -30,7 +30,7 @@ const Sidebar = () => {
                             className="nav-link collapsed"
                             href={route("student.grades")}
                         >
-                            <i className="bi bi-person" />
+                            <i className="bi bi-card-list" />
                             <span>Grades</span>
                         </Link>
                     </li>
@@ -38,9 +38,9 @@ const Sidebar = () => {
                     <li className="nav-item">
                         <Link
                             className="nav-link collapsed"
-                            href={route("profile.edit")}
+                            href={route("student.award")}
                         >
-                            <i className="bi bi-person" />
+                            <i className="bi bi-gem" />
                             <span>Award</span>
                         </Link>
                     </li>

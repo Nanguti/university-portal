@@ -45,7 +45,7 @@ const Header = ({ user, header }) => {
                     </form>
                 </div>
                 {/* End Search Bar */}
-                <nav className="header-nav ms-auto">
+                <nav className="header-nav ms-auto mr-10">
                     <div className="hidden sm:flex sm:items-center sm:ml-6">
                         <div className="ml-3 relative">
                             <Dropdown>
