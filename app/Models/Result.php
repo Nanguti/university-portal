@@ -26,69 +26,51 @@ class Result extends Model
     }
 
     public static function calculateGradeForStudent($unit_id, $student_id, $total_marks) {
+        $result = Result::where('unit_id', $unit_id)
+            ->where('student_id', $student_id)
+            ->first();
     
-        $result = Result::where('unit_id', $unit_id)->where('student_id', $student_id)->first();
-        if ($total_marks >= 80) {
-            $grade = 'A';
-            $remarks = 'Excellent';
-        } elseif ($total_marks >= 70) {
-            $grade = 'B';
-            $remarks = 'Good';
-        } elseif ($total_marks >= 60) {
-            $grade = 'C';
-            $remarks = 'Satisfactory';
-        } elseif ($total_marks >= 50) {
-            $grade = 'D';
-            $remarks = 'Average/Pass';
+        $student = Student::find($student_id); 
+
+        $gradeThresholds = [
+            'PhD' => [80, 70, 60, 50],
+            'Masters' => [80, 70, 60, 50],
+            'Undergraduate' => [70, 60, 50, 40],
+            'Diploma' => [70, 60, 50, 40],
+            'Certificate' => [70, 60, 50, 40],
+        ];
+    
+        $programLevel = $student->program_level;
+        $defaultGrade = 'E';
+        $defaultRemarks = 'Fail';
+    
+        // Check if the program level is in the thresholds array, otherwise, use the default
+        if (isset($gradeThresholds[$programLevel])) {
+            $thresholds = $gradeThresholds[$programLevel];
+            if ($total_marks >= $thresholds[0]) {
+                $grade = 'A';
+                $remarks = 'Excellent';
+            } elseif ($total_marks >= $thresholds[1]) {
+                $grade = 'B';
+                $remarks = 'Good';
+            } elseif ($total_marks >= $thresholds[2]) {
+                $grade = 'C';
+                $remarks = 'Satisfactory';
+            } elseif ($total_marks >= $thresholds[3]) {
+                $grade = 'D';
+                $remarks = 'Average/Pass';
+            } else {
+                $grade = $defaultGrade;
+                $remarks = $defaultRemarks;
+            }
         } else {
-            $grade = 'E';
-            $remarks = 'Fail';
+            $grade = $defaultGrade;
+            $remarks = $defaultRemarks;
         }
+
         $result->grade = $grade;
         $result->remarks = $remarks;
         $result->save();
-        
-       
-    }
-
-    public function calculateAwardForStudent(Student $student) {
-        $results = $student->results;
-
-        $totalPercentage = 0;
-        $resultCount = $results->count();
-        foreach ($results as $result) {
-            $totalPercentage += $result->percentage_obtained;
-        }
-
-        $averagePercentage = $resultCount > 0 ? $totalPercentage / $resultCount : 0;
-        $award = '';
-        $remarks = '';
-        $degreeLevel = $student->degree_level;
-
-        if ($degreeLevel == "Postgraduate") {
-            $award = $averagePercentage >= 50 ? 'Pass' : 'Fail';
-        } elseif ($degreeLevel == "Undergraduate/Diploma/Certificate") {
-            if ($averagePercentage >= 70) {
-                $award = '1st Class Honors';
-            } elseif ($averagePercentage >= 60) {
-                $award = '2nd Class Honors Upper Division';
-            } elseif ($averagePercentage >= 50) {
-                $award = '2nd Class Honors Lower Division';
-            } elseif ($averagePercentage >= 40) {
-                $award = 'Pass';
-            }
-            if ($degreeLevel == "Certificate" || $degreeLevel == "Diploma") {
-                if ($averagePercentage >= 70) {
-                    $award = 'Distinction';
-                } elseif ($averagePercentage >= 55) {
-                    $award = 'Credit';
-                }
-            }
-        }
-        $student->award = $award;
-        $student->remarks = $remarks;
-        $student->save();
-        return $award;
-    }
+    }    
 
 }

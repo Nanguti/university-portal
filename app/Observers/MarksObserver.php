@@ -48,7 +48,6 @@ class MarksObserver
                 'total_marks' => $marks->score,
             ]);
         }
-
         Result::calculateGradeForStudent($marks->unit_id, $marks->student_id, $result ? ($result->total_marks + $marks->score) : $marks->score);
 
         

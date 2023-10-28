@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -47,12 +49,27 @@ class Student extends Resource
         return [
             ID::make()->sortable(),
             Text::make('First Name')->required(),
-            Text::make('Email')->required(),
             Text::make('Last Name')->required(),
+            Text::make('Email')->required(),
             Text::make('Student ID')->required(),
             BelongsTo::make('Course')->required(),
             BelongsTo::make('Batch')->required(),
-            BelongsTo::make('Award')->nullable()
+            Select::make('Program Level')
+                ->options([
+                    'PhD' => 'PhD',
+                    'Masters' => 'Masters',
+                    'Undergraduate' => 'Undergraduate',
+                    'Diploma' => 'Diploma',
+                    'Certificate' => 'Certificate'
+                ]),
+            BelongsTo::make('Award')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
+            HasMany::make("Marks", 'marks', Marks::class),
+            Text::make('Award')->exceptOnForms()->resolveUsing(function () {
+            // Retrieve the student's award based on your calculation logic
+            return $this->getAward($this);
+        }),
         ];
     }
 

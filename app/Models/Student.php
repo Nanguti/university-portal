@@ -29,4 +29,10 @@ class Student extends Model implements Authenticatable
     public function course(){
         return $this->belongsTo(Course::class);
     }
+
+    public function getAward($student) {
+        $award = Award::getAwardForStudent($student);
+        return $award;
+    }
+
 }
