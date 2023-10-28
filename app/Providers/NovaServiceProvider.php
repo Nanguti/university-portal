@@ -25,6 +25,9 @@ use Laravel\Nova\Menu\MenuSection;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 use Vyuldashev\NovaPermission\NovaPermissionTool;
+use App\Observers\MarksObserver; 
+
+use App\Models\Marks as MarksModel;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -36,6 +39,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        MarksModel::observe(MarksObserver::class);
 
         Nova::mainMenu(function (Request $request) {
             return [
@@ -83,6 +88,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         });
         
         Nova::style('custom-css', asset('custom/css/custom.css'));
+
+
     }
 
     /**

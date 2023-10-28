@@ -3,33 +3,24 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Marks extends Resource
+class Result extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Marks>
+     * @var class-string<\App\Models\Result>
      */
-    public static $model = \App\Models\Marks::class;
+    public static $model = \App\Models\Result::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public function title()
-    {
-        return __("Student");
-    }
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -37,7 +28,7 @@ class Marks extends Resource
      * @var array
      */
     public static $search = [
-        'student_id', 'course_id', 'batch_id', 'score', 'comment', 'semester'
+        'id',
     ];
 
     /**
@@ -50,18 +41,6 @@ class Marks extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Course')->required(),
-            BelongsTo::make('Batch')->required(),
-            BelongsTo::make('Student')->required(),
-            BelongsTo::make('Unit')->required(),
-            Textarea::make('Comment')->required(),
-            Number::make('Semester'),
-            Number::make('Score')->required(),
-            Select::make('Component Name')->options([
-                'Assignment' => 'Assignment',
-                'Cat'=> 'CAT',
-                'Exam' => 'Exam'
-            ])
         ];
     }
 
@@ -106,8 +85,6 @@ class Marks extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [
-            ExportAsCsv::make(),
-        ];
+        return [];
     }
 }

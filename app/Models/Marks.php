@@ -28,4 +28,9 @@ class Marks extends Model
     public function result() {
         return $this->belongsTo(Result::class);
     }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
 }
