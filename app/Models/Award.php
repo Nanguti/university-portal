@@ -47,22 +47,22 @@ class Award extends Model
             else {
                 $award = 'Fail';
             }
-            if ($degreeLevel == "Certificate" || $degreeLevel == "Diploma") {
-                if ($averagePercentage >= 70) {
-                    $award = 'Distinction';
-                } elseif ($averagePercentage >= 55) {
-                    $award = 'Credit';
-                }
-
-                elseif ($averagePercentage >= 40) {
-                    $award = 'Pass';
-                }
-
-                else{
-                    $award = "Fail";
-                }
-                
+        }
+        else if ($degreeLevel == "Certificate" || $degreeLevel == "Diploma") {
+            if ($averagePercentage >= 70) {
+                $award = 'Distinction';
+            } elseif ($averagePercentage >= 55) {
+                $award = 'Credit';
             }
+
+            elseif ($averagePercentage >= 40) {
+                $award = 'Pass';
+            }
+
+            else{
+                $award = "Fail";
+            }
+            
         }
        
         return $award;
