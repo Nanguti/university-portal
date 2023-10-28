@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Result;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ResultController extends Controller
 {
@@ -12,7 +14,8 @@ class ResultController extends Controller
      */
     public function index()
     {
-        //
+        $result = Result::latest()->paginate(10);
+        return Inertia::render("results", ["results" => $result]);
     }
 
     /**

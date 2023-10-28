@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -47,14 +48,17 @@ class Marks extends Resource
      */
     public function fields(NovaRequest $request)
     {
+        $studentId = $request->mark['student_id'];
         return [
             ID::make()->sortable(),
             BelongsTo::make('Student')->required(),
             BelongsTo::make('Course')->required(),
             BelongsTo::make('Batch')->required(),
+            BelongsTo::make('Unit')->required(),
             Textarea::make('Comment')->required(),
             Number::make('Semester'),
-            Number::make('Score')->required()
+            Number::make('Score')->required(),
+            Hidden::make('Student ID')->value($studentId)
         ];
     }
 

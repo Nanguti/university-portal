@@ -9,7 +9,7 @@ class Marks extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'student_id', 'course_id', 'batch_id', 'score', 'comment', 'semester'
+        'student_id', 'course_id', 'batch_id', 'score', 'comment', 'semester', 'unit_id', 'component_name'
     ];
 
     public function student()
@@ -23,5 +23,9 @@ class Marks extends Model
     public function batch()
     {
         return $this->belongsTo(Batch::class);
+    }
+
+    public function result() {
+        return $this->belongsTo(Result::class);
     }
 }

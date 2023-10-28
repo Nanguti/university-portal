@@ -21,4 +21,9 @@ class Course extends Model
     public function assignments(){
         return $this->hasMany(Assignment::class);
     }
+
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
 }

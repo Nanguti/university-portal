@@ -40,7 +40,7 @@ export default function Dashboard({ auth }) {
                                             </h5>
                                             <div className="d-flex align-items-center">
                                                 <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                                    <i class="bi bi-cash-stack" />
+                                                    <i className="bi bi-cash-stack" />
                                                 </div>
                                                 <div className="ps-3">
                                                     <h6>1451</h6>
