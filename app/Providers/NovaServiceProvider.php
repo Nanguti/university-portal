@@ -12,8 +12,10 @@ use App\Nova\Dashboards\MainDashboard;
 use App\Nova\FinancialInformation;
 use App\Nova\Grade;
 use App\Nova\Library;
+use App\Nova\Marks;
 use App\Nova\Student;
 use App\Nova\StudentSupport;
+use App\Nova\Unit;
 use App\Nova\User;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
@@ -47,9 +49,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
                 MenuSection::make('Course Management', [
                     MenuItem::resource(Course::class),
+                    MenuItem::resource(Unit::class),
                     MenuItem::resource(Batch::class),
-                    MenuItem::resource(Award::class),
+                    MenuItem::resource(Marks::class),
                     MenuItem::resource(Grade::class),
+                    MenuItem::resource(Award::class),
                 ])->icon('document-text')->collapsable(),
 
                 MenuSection::make('Student Welfare', [

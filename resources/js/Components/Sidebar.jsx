@@ -28,7 +28,7 @@ const Sidebar = () => {
                     <li className="nav-item">
                         <Link
                             className="nav-link collapsed"
-                            href={route("profile.edit")}
+                            href={route("student.grades")}
                         >
                             <i className="bi bi-person" />
                             <span>Grades</span>

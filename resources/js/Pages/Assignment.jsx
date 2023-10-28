@@ -11,7 +11,9 @@ const Assignment = ({ auth, assignments }) => {
                         Assignments
                     </h2>
                 }
-            ></AuthenticatedLayout>
+            >
+                Assignements
+            </AuthenticatedLayout>
         </>
     );
 };

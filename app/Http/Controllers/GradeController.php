@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Result;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class GradeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function student(Request $request): Response
     {
-        //
+        $results = Result::where("student_id", $request->user()->student_id);
+        return Inertia::render("Grades", [
+            'results' =>$results
+        ]);
+        
     }
 
     /**
