@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -46,7 +47,7 @@ class Course extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('name')
+            Text::make('Name')
                 ->required(),
             Text::make('Code')
                 ->required(),
@@ -54,6 +55,9 @@ class Course extends Resource
                 ->required(),
             Number::make('Duration')
                 ->required(),
+            HasMany::make('Batches'),
+            HasMany::make('Units'),
+            
         ];
     }
 
