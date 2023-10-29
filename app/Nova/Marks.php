@@ -54,14 +54,14 @@ class Marks extends Resource
             BelongsTo::make('Batch')->required(),
             BelongsTo::make('Student')->required(),
             BelongsTo::make('Unit')->required(),
-            Textarea::make('Comment')->required(),
             Number::make('Semester'),
             Number::make('Score')->required(),
             Select::make('Component Name')->options([
                 'Assignment' => 'Assignment',
                 'Cat'=> 'CAT',
                 'Exam' => 'Exam'
-            ])
+            ]),
+            Textarea::make('Comment'),
         ];
     }
 

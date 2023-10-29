@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'academic_year', 'course_id'];
+    protected $fillable = ['name', 'course_id', 'intake_year', 'intake_month', 'start_date', 'end_date'];
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime'
+    ];
     public function course()
     {
         return $this->belongsTo(Course::class);

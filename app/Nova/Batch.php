@@ -8,6 +8,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Batch extends Resource
@@ -46,9 +48,18 @@ class Batch extends Resource
         return [
 
             ID::make()->sortable(),
-            Text::make('name'),
-            Number::make('Academic Year', 'academic_year'),
-            BelongsTo::make('Course')
+            BelongsTo::make('Course'),
+            Number::make('Intake Year')->required(),
+            Select::make('Intake Month')
+            ->options([
+                1 => 'January',
+                5 => 'May',
+                9 => 'September'
+            ])
+            ->required(),
+            DateTime::make('Start Date')->required(),
+            DateTime::make('End Date')->required(),
+            
         ];
     }
 
