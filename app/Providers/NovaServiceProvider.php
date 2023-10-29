@@ -130,7 +130,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function dashboards()
     {
         return [
-            new \App\Nova\Dashboards\MainDashboard,
+            new MainDashboard,
         ];
     }
 
@@ -153,6 +153,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function register()
     {
-        //
+        Nova::initialPath('dashboards/main-dashboard');
     }
 }

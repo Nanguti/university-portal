@@ -18,4 +18,9 @@ class MainDashboard extends Dashboard
             new Help,
         ];
     }
+
+    public function uriKey()
+    {
+        return 'main-dashboard';
+    }
 }
