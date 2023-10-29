@@ -62,13 +62,10 @@ class Student extends Resource
                     'Diploma' => 'Diploma',
                     'Certificate' => 'Certificate'
                 ]),
-            BelongsTo::make('Award')
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
             HasMany::make("Marks", 'marks', Marks::class),
             Text::make('Award')->exceptOnForms()->resolveUsing(function () {
             return $this->getAward($this);
-        }),
+        })->hideFromIndex(),
         ];
     }
 

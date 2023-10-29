@@ -27,7 +27,7 @@ class Batch extends Resource
      *
      * @var string
      */
-    public static $title = 'start_date';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -49,6 +49,7 @@ class Batch extends Resource
         return [
 
             ID::make()->sortable(),
+            Text::make('Name'),
             BelongsTo::make('Course'),
             Number::make('Intake Year')->required(),
             Select::make('Intake Month')

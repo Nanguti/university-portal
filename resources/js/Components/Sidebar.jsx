@@ -44,6 +44,16 @@ const Sidebar = () => {
                             <span>Award</span>
                         </Link>
                     </li>
+
+                    <li className="nav-item">
+                        <Link
+                            className="nav-link collapsed"
+                            href={route("student.award")}
+                        >
+                            <i className="bi bi-gem" />
+                            <span>Assignments</span>
+                        </Link>
+                    </li>
                 </ul>
             </aside>
         </>
