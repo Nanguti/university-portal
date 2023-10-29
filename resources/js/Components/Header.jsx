@@ -78,7 +78,7 @@ const Header = ({ user, header }) => {
                                     </Dropdown.Link>
                                     <Dropdown.Link
                                         href={route("logout")}
-                                        method="post"
+                                        method="POST"
                                         as="button"
                                     >
                                         Log Out

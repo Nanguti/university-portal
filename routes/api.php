@@ -23,23 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// post routes
-Route::get('/posts/list', [PostController::class, 'posts']);
-Route::post('/post/detail', [PostController::class, 'postDetail']);
-
-// comments
-Route::post('/add/comment', [CommentController::class, 'store']);
-Route::post('/update/comment', [CommentController::class, 'update']);
-Route::delete('/delete/comment/{id}', [CommentController::class, 'destroy']);
-
-// categories
-Route::get('/category/list', [CategoryController::class, 'categories']);
-Route::post('/category/detail', [CategoryController::class, 'categoryDetail']);
-
-//job listing
-Route::get('/import/jobs', [JobListingController::class, 'importJobs']);
-Route::get('/jobs/list', [JobListingController::class, 'jobList']);
-Route::post('/job/details', [JobListingController::class, 'jobDetail']);
-Route::post('/search/job', [JobListingController::class, 'autocompleteSearch']);
-
 Route::post('/contactus', [ContactController::class, 'submitForm']);
