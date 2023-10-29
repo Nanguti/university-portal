@@ -31,7 +31,7 @@ const Award = ({ auth, award }) => {
                         <div className="row">
                             <div className="col-lg-8">
                                 <div className="row">
-                                    <div className="col-xxl-4 col-md-6">
+                                    <div className="col-xxl-4 col-md-12">
                                         <div className="card info-card sales-card">
                                             <div className="card-body">
                                                 <h5 className="card-title">
@@ -41,7 +41,7 @@ const Award = ({ auth, award }) => {
                                                 </h5>
                                                 <div className="d-flex align-items-center">
                                                     <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                                        <i className="bi bi-gem" />
+                                                        <i className="bi bi-award-fill" />
                                                     </div>
                                                     <div className="ps-3">
                                                         <h6>{award.award}</h6>
