@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98e5ff763f5cd877aa27a6582d9195bb",
+    "content-hash": "67c9b8f85169d74b8938f9861b7005f4",
     "packages": [
         {
             "name": "brick/math",
@@ -1500,6 +1500,56 @@
                 }
             ],
             "time": "2023-09-13T02:24:55+00:00"
+        },
+        {
+            "name": "itsmejoshua/novaspatiepermissions",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsmejoshua/novaspatiepermissions.git",
+                "reference": "6d665c310586627802a4dd03a36bfd45b05eef33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsmejoshua/novaspatiepermissions/zipball/6d665c310586627802a4dd03a36bfd45b05eef33",
+                "reference": "6d665c310586627802a4dd03a36bfd45b05eef33",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": "^8.0",
+                "spatie/laravel-permission": "^5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Itsmejoshua\\Novaspatiepermissions\\ToolServiceProvider",
+                        "Itsmejoshua\\Novaspatiepermissions\\NovaSpatiePermissionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Itsmejoshua\\Novaspatiepermissions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel Nova tool for managing spaties roles/permissions in laravel's nova package.",
+            "keywords": [
+                "laravel",
+                "nova",
+                "permissions",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/itsmejoshua/novaspatiepermissions/issues",
+                "source": "https://github.com/itsmejoshua/novaspatiepermissions/tree/v1.0.7"
+            },
+            "time": "2022-05-16T01:34:26+00:00"
         },
         {
             "name": "laravel/framework",

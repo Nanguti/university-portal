@@ -15,15 +15,15 @@ const Header = ({ user, header }) => {
                 className="header fixed-top d-flex align-items-center"
             >
                 <div className="d-flex align-items-center justify-content-between">
-                    <a
-                        href="index.html"
+                    <Link
+                        href={route("dashboard")}
                         className="logo d-flex align-items-center"
                     >
                         <img src="img/logo.png" alt="" />
                         <span className="d-none d-lg-block">
                             Zetech University
                         </span>
-                    </a>
+                    </Link>
                     <i className="bi bi-list toggle-sidebar-btn" />
                 </div>
                 {/* End Logo */}

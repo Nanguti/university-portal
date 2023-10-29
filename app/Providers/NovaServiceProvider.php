@@ -76,6 +76,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::make('Roles',"/resources/roles"),
                     MenuItem::make('Permissions',"/resources/permissions"),
                 ])->icon('lock-closed')->collapsable(),
+                
                     
             ];
         });
