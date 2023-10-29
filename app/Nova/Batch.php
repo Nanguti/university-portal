@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Batch extends Resource
@@ -26,7 +27,7 @@ class Batch extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'start_date';
 
     /**
      * The columns that should be searched.
@@ -34,7 +35,7 @@ class Batch extends Resource
      * @var array
      */
     public static $search = [
-        'name', 'academic_year', 'course'
+        'intake_year', 'intake_month', 'course_id', 'start_date'
     ];
 
     /**
@@ -59,6 +60,7 @@ class Batch extends Resource
             ->required(),
             DateTime::make('Start Date')->required(),
             DateTime::make('End Date')->required(),
+            HasMany::make('Students'),
             
         ];
     }

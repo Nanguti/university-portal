@@ -57,6 +57,7 @@ class Course extends Resource
                 ->required(),
             HasMany::make('Batches'),
             HasMany::make('Units'),
+            HasMany::make('Students')
             
         ];
     }

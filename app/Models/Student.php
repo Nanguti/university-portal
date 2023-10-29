@@ -32,7 +32,7 @@ class Student extends Model implements Authenticatable
 
     public function getAward($student) {
         $award = Award::getAwardForStudent($student);
-        return $award;
+        return $award['award'];
     }
 
 }
