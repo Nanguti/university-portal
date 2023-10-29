@@ -51,7 +51,7 @@ const Sidebar = () => {
                             href={route("student.award")}
                         >
                             <i className="bi bi-gem" />
-                            <span>Assignments</span>
+                            <span>Assignment</span>
                         </Link>
                     </li>
                 </ul>
