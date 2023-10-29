@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grade;
 use App\Models\Result;
+use App\Models\Marks;
 use App\Models\Award;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -14,7 +15,7 @@ class GradeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function student(Request $request): Response
+    public function getGrades(Request $request): Response
     {
         $results = Result::with('unit')->where("student_id", $request->user()->id)->get();
         return Inertia::render("Grades", [
@@ -34,5 +35,15 @@ class GradeController extends Controller
             "award" => $award
         ]);
         
+    }
+
+    public function getMarks(Request $request): Response
+    {
+        $marks = Marks::with('unit')
+            ->where('student_id', $request->user()->id)
+            ->get();
+        return Inertia::render('Marks', [
+            'marks' => $marks
+        ]);
     }
 }

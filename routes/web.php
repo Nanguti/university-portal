@@ -29,8 +29,9 @@ Route::middleware(['auth:student', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/award', [GradeController::class, 'getAward'])->name('student.award');
-    Route::get('/grades', [GradeController::class, 'student'])->name('student.grades');
+    Route::get('/grades', [GradeController::class, 'getGrades'])->name('student.grades');
+    Route::get('/marks', [GradeController::class, 'getMarks'])->name('student.marks');
     Route::get('/announcements', [AnnouncementController::class, 'index']);
-    Route::get('/assignment', [AssignmentController::class, 'index']);
+    Route::get('/assignment', [AssignmentController::class, 'index'])->name('student.assignment');
 });
 require __DIR__.'/auth.php';
