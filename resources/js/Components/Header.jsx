@@ -19,9 +19,9 @@ const Header = ({ user, header }) => {
                         href={route("dashboard")}
                         className="logo d-flex align-items-center"
                     >
-                        <img src="img/logo.png" alt="" />
+                        {/* <img src="img/logo.png" alt="" className="w-60 h-20" /> */}
                         <span className="d-none d-lg-block">
-                            Zetech University
+                            ZETECH UNIVERSITY
                         </span>
                     </Link>
                     <i className="bi bi-list toggle-sidebar-btn" />

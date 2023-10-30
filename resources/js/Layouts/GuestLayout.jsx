@@ -8,7 +8,7 @@ export default function Guest({ children }) {
                 <Link href="/">
                     <img
                         src="img/logo.png"
-                        className="w-20 h-20 fill-current text-gray-500"
+                        className="w-60 h-20 fill-current text-gray-500 rounded-md"
                         alt=""
                     />
                 </Link>
