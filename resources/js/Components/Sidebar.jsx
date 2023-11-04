@@ -58,7 +58,7 @@ const Sidebar = () => {
                             className="nav-link collapsed"
                             href={route("student.assignment")}
                         >
-                            <i className="bi bi-award-fill" />
+                            <i className="bi bi-patch-question-fill" />
                             <span>Assignments</span>
                         </Link>
                     </li>

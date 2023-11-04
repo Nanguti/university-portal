@@ -1,13 +1,14 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function Dashboard({
     auth,
-    financialinformation,
-    announcements,
     batch,
+    financialinformation,
+    assignments,
+    announcements,
 }) {
-    console.log(batch[0]);
+    console.log(assignments);
     const student_announcements = announcements.data;
 
     return (
@@ -27,7 +28,7 @@ export default function Dashboard({
                     <nav>
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item">
-                                <a href="index.html">Home</a>
+                                <Link href={route("dashboard")}>Home</Link>
                             </li>
                             <li className="breadcrumb-item active">
                                 Dashboard
@@ -134,6 +135,40 @@ export default function Dashboard({
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">
+                                        Latest Assignments
+                                    </h5>
+                                    {assignments.map((assignment) => (
+                                        <Link
+                                            href={route("assignment.details")}
+                                            key={assignment.id}
+                                            className="activity"
+                                        >
+                                            <div className="activity-item d-flex">
+                                                <div className="activite-label">
+                                                    32 min
+                                                </div>
+                                                <i className="bi bi-circle-fill activity-badge text-success align-self-start" />
+                                                <div className="activity-content">
+                                                    <span className="fw-bold text-dark">
+                                                        {assignment.unit.name}
+                                                    </span>
+                                                    <p className="text-muted">
+                                                        {assignment.name}
+                                                    </p>
+                                                    <p className="text-muted">
+                                                        {
+                                                            assignment.instructions
+                                                        }
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">
                                         Announcements
                                     </h5>
                                     {student_announcements.map(
@@ -154,30 +189,6 @@ export default function Dashboard({
                                             </div>
                                         )
                                     )}
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className="card-body pb-0">
-                                    <h5 className="card-title">
-                                        Announcements
-                                    </h5>
-                                    <div className="news">
-                                        <div className="post-item clearfix">
-                                            <img src="img/news-1.jpg" alt="" />
-                                            <h4>
-                                                <a href="#">
-                                                    Nihil blanditiis at in nihil
-                                                    autem
-                                                </a>
-                                            </h4>
-                                            <p>
-                                                Sit recusandae non aspernatur
-                                                laboriosam. Quia enim eligendi
-                                                sed ut harum...
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

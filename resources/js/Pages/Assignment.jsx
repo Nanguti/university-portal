@@ -1,7 +1,16 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
 const Assignment = ({ auth, assignments }) => {
-    console.log(assignments);
+    function formatDate(dateTimeString) {
+        const originalDate = new Date(dateTimeString);
+        return originalDate.toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    }
     return (
         <>
             <AuthenticatedLayout
@@ -20,7 +29,7 @@ const Assignment = ({ auth, assignments }) => {
                         <nav>
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <Link href={route("dashboard")}>Home</Link>
                                 </li>
                                 <li className="breadcrumb-item active">
                                     Assignments
@@ -55,10 +64,9 @@ const Assignment = ({ auth, assignments }) => {
                                                             }
                                                         </h5>
                                                         <small className="text-muted">
-                                                            Lasted Updated:{" "}
-                                                            {assignment.updated_at.substring(
-                                                                0,
-                                                                10
+                                                            Due Date :{" "}
+                                                            {formatDate(
+                                                                assignment.due_date
                                                             )}
                                                         </small>
                                                     </div>

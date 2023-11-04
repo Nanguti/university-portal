@@ -47,8 +47,8 @@ const Grades = ({ auth, results }) => {
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">Code</th>
-                                        <th scope="col">Code</th>
+                                        <th scope="col">Unit Code</th>
+                                        <th scope="col">Unit Name</th>
                                         <th scope="col">Total Marks</th>
                                         <th scope="col">Remarks</th>
                                         <th scope="col">Last Updated</th>

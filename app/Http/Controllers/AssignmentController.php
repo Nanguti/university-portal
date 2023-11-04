@@ -29,12 +29,4 @@ class AssignmentController extends Controller
         return Inertia::render('AssignmentDetail', ['assignment'=>$assignment]);
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Assignment $assignment)
-    {
-        //
-    }
 }
