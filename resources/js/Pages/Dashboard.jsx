@@ -1,7 +1,15 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
-export default function Dashboard({ auth }) {
+export default function Dashboard({
+    auth,
+    financialinformation,
+    announcements,
+    batch,
+}) {
+    console.log(batch[0]);
+    const student_announcements = announcements.data;
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -33,6 +41,34 @@ export default function Dashboard({ auth }) {
                         <div className="col-lg-8">
                             <div className="row">
                                 <div className="col-xxl-4 col-md-6">
+                                    <div className="card info-card revenue-card">
+                                        <div className="card-body">
+                                            <h5 className="card-title">
+                                                {batch[0].course.name}
+                                                <span></span>
+                                            </h5>
+                                            <div className="d-flex align-items-center">
+                                                <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i className="bi bi-book-half" />
+                                                </div>
+                                                <div className="ps-3">
+                                                    <h6>3.2</h6>
+                                                    <span className="text-success small pt-1 fw-bold">
+                                                        {batch[0].name}
+                                                    </span>{" "}
+                                                    <span className="text-muted small pt-2 ps-1">
+                                                        Completion Date:{" "}
+                                                        {batch[0].end_date.substring(
+                                                            0,
+                                                            10
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xxl-4 col-md-6">
                                     <div className="card info-card sales-card">
                                         <div className="card-body">
                                             <h5 className="card-title">
@@ -46,30 +82,6 @@ export default function Dashboard({ auth }) {
                                                     <h6>1451</h6>
                                                     <span className="text-success small pt-1 fw-bold">
                                                         72 %
-                                                    </span>{" "}
-                                                    <span className="text-muted small pt-2 ps-1">
-                                                        completed
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-xxl-4 col-md-6">
-                                    <div className="card info-card revenue-card">
-                                        <div className="card-body">
-                                            <h5 className="card-title">
-                                                Year of Study <span></span>
-                                            </h5>
-                                            <div className="d-flex align-items-center">
-                                                <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                                    <i className="bi bi-book-half" />
-                                                </div>
-                                                <div className="ps-3">
-                                                    <h6>3.2</h6>
-                                                    <span className="text-success small pt-1 fw-bold">
-                                                        75%
                                                     </span>{" "}
                                                     <span className="text-muted small pt-2 ps-1">
                                                         completed
@@ -115,120 +127,6 @@ export default function Dashboard({ auth }) {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="col-12">
-                                    <div className="card recent-sales overflow-auto">
-                                        <div className="card-body">
-                                            <h5 className="card-title">
-                                                Recent Sales{" "}
-                                            </h5>
-                                            <table className="table table-borderless datatable">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">
-                                                            ID:{" "}
-                                                        </th>
-                                                        <th scope="col">
-                                                            Customer
-                                                        </th>
-                                                        <th scope="col">
-                                                            Product
-                                                        </th>
-                                                        <th scope="col">
-                                                            Price
-                                                        </th>
-                                                        <th scope="col">
-                                                            Status
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <a href="#">
-                                                                #2457
-                                                            </a>
-                                                        </th>
-                                                        <td>Brandon Jacob</td>
-                                                        <td>
-                                                            <a
-                                                                href="#"
-                                                                className="text-primary"
-                                                            >
-                                                                At praesentium
-                                                                minu
-                                                            </a>
-                                                        </td>
-                                                        <td>64</td>
-                                                        <td>
-                                                            <span className="badge bg-success">
-                                                                Approved
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-12">
-                                    <div className="card top-selling overflow-auto">
-                                        <div className="card-body pb-0">
-                                            <h5 className="card-title">
-                                                Top Selling
-                                            </h5>
-                                            <table className="table table-borderless">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">
-                                                            Preview
-                                                        </th>
-                                                        <th scope="col">
-                                                            Product
-                                                        </th>
-                                                        <th scope="col">
-                                                            Price
-                                                        </th>
-                                                        <th scope="col">
-                                                            Sold
-                                                        </th>
-                                                        <th scope="col">
-                                                            Revenue
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <a href="#">
-                                                                <img
-                                                                    src="img/product-1.jpg"
-                                                                    alt=""
-                                                                />
-                                                            </a>
-                                                        </th>
-                                                        <td>
-                                                            <a
-                                                                href="#"
-                                                                className="text-primary fw-bold"
-                                                            >
-                                                                Ut inventore
-                                                                ipsa voluptas
-                                                                nulla
-                                                            </a>
-                                                        </td>
-                                                        <td>64</td>
-                                                        <td className="fw-bold">
-                                                            124
-                                                        </td>
-                                                        <td>5,828</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -236,26 +134,26 @@ export default function Dashboard({ auth }) {
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">
-                                        Upcoming Events
+                                        Announcements
                                     </h5>
-                                    <div className="activity">
-                                        <div className="activity-item d-flex">
-                                            <div className="activite-label">
-                                                32 min
+                                    {student_announcements.map(
+                                        (announcement) => (
+                                            <div
+                                                key={announcement.id}
+                                                className="activity"
+                                            >
+                                                <div className="activity-item d-flex">
+                                                    <div className="activite-label">
+                                                        32 min
+                                                    </div>
+                                                    <i className="bi bi-circle-fill activity-badge text-success align-self-start" />
+                                                    <div className="activity-content">
+                                                        {announcement.title}
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <i className="bi bi-circle-fill activity-badge text-success align-self-start" />
-                                            <div className="activity-content">
-                                                Quia quae rerum{" "}
-                                                <a
-                                                    href="#"
-                                                    className="fw-bold text-dark"
-                                                >
-                                                    explicabo officiis
-                                                </a>{" "}
-                                                beatae
-                                            </div>
-                                        </div>
-                                    </div>
+                                        )
+                                    )}
                                 </div>
                             </div>
 

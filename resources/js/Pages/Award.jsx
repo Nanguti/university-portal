@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 const Award = ({ auth, award }) => {
     console.log(award);
     return (
@@ -8,10 +9,11 @@ const Award = ({ auth, award }) => {
                 user={auth.user}
                 header={
                     <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                        Grades
+                        Award
                     </h2>
                 }
             >
+                <Head title="Award" />
                 <main id="main" className="main">
                     <div className="pagetitle">
                         <h1>Award</h1>

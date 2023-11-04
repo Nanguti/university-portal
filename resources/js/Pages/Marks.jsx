@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Link } from "@inertiajs/react";
+import { Link, Head } from "@inertiajs/react";
+
 const Marks = ({ auth, marks }) => {
     function formatDate(dateTimeString) {
         const originalDate = new Date(dateTimeString);
@@ -22,6 +23,7 @@ const Marks = ({ auth, marks }) => {
                     </h2>
                 }
             >
+                <Head title="Marks" />
                 <main id="main" className="main">
                     <div className="pagetitle">
                         <h1>Marks</h1>

@@ -22,10 +22,9 @@ use Inertia\Inertia;
 
 
 Route::middleware(['auth:student', 'verified'])->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-
+   
+    Route::get('/', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -34,5 +33,6 @@ Route::middleware(['auth:student', 'verified'])->group(function () {
     Route::get('/marks', [GradeController::class, 'getMarks'])->name('student.marks');
     Route::get('/announcements', [AnnouncementController::class, 'index']);
     Route::get('/assignment', [AssignmentController::class, 'index'])->name('student.assignment');
+    Route::get('/assignment/details', [AssignmentController::class, 'show'])->name('assignment.details');
 });
 require __DIR__.'/auth.php';

@@ -1,5 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Link } from "@inertiajs/react";
+import { Link, Head } from "@inertiajs/react";
 
 const Grades = ({ auth, results }) => {
     function formatDate(dateTimeString) {
@@ -23,6 +23,7 @@ const Grades = ({ auth, results }) => {
                     </h2>
                 }
             >
+                <Head title="Grades" />
                 <main id="main" className="main">
                     <div className="pagetitle">
                         <h1>Grades</h1>

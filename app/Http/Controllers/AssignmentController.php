@@ -14,35 +14,21 @@ class AssignmentController extends Controller
      */
     public function index(Request $request): Response
     {
-        $assignments = Assignment::all();
+        $assignments = Assignment::with('unit')->where(['course_id' =>  $request->user()->course_id, 'batch_id'=> $request->user()->batch_id])->get();
         return Inertia::render("Assignment", ['assignments' => $assignments]);
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      */
     public function show(Assignment $assignment)
     {
-        //
+
+        $assignment = Assignment::find($assignment);
+        return Inertia::render('AssignmentDetail', ['assignment'=>$assignment]);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Assignment $assignment)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

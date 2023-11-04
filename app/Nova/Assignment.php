@@ -49,6 +49,7 @@ class Assignment extends Resource
                 ->required(),
             BelongsTo::make('Course'),
             BelongsTo::make('Batch'),
+            BelongsTo::make('Unit'),
             DateTime::make('Due Date')
                 ->required(),
             Textarea::make('Instructions')

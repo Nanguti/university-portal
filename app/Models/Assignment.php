@@ -9,7 +9,7 @@ class Assignment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "name","course_name","due_date","instructions","submission_link",
+        "name","course_id",'batch_id','unit_id',"due_date","instructions","submission_link",
     ];
 
     protected $casts = [
@@ -24,5 +24,8 @@ class Assignment extends Model
     public function batch()
     {
         return $this->belongsTo(Batch::class);
+    }
+    public function unit(){
+        return $this->belongsTo(Unit::class);
     }
 }
