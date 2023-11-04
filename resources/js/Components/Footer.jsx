@@ -1,10 +1,7 @@
 import React from "react";
 
 const Footer = () => {
-    // Get the current date
     const currentDate = new Date();
-
-    // Format the current date as a string (e.g., "2023")
     const year = currentDate.getFullYear();
 
     return (
