@@ -2,7 +2,16 @@ import React from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
 const AssignmentDetail = ({ auth, assignment }) => {
-    console.log(assignment);
+    function formatDate(dateTimeString) {
+        const originalDate = new Date(dateTimeString);
+        return originalDate.toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    }
     return (
         <>
             <AuthenticatedLayout
@@ -35,7 +44,26 @@ const AssignmentDetail = ({ auth, assignment }) => {
                         </nav>
                     </div>
 
-                    <section className="section"></section>
+                    <section className="section">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h5 className="card-title">
+                                            {assignment.unit.name}
+                                        </h5>
+                                        {assignment.name}
+                                        <p>
+                                            Instructions:{" "}
+                                            {assignment.instructions}
+                                        </p>
+                                        Due Date:{" "}
+                                        {formatDate(assignment.due_date)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </main>
             </AuthenticatedLayout>
         </>
