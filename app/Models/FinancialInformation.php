@@ -9,7 +9,6 @@ class FinancialInformation extends Model
 {
     use HasFactory;
 
-    protected $table = 'financialinformation';
     protected $fillable = [
         'tuition_fee',
         'due_date',
