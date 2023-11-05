@@ -56,7 +56,7 @@ const Grades = ({ auth, results }) => {
                                 </thead>
                                 <tbody>
                                     {results.map((res) => (
-                                        <tr>
+                                        <tr key={res.id}>
                                             <th scope="row">{res.id}</th>
                                             <td>{res.unit.code}</td>
                                             <td>{res.unit.name}</td>

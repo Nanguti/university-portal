@@ -1233,3 +1233,9 @@ h6 {
 .custom-margin-left {
     margin-left: 300px !important;
 }
+
+.active-sidebar-link {
+    border: 2px solid #4154f1;
+    background-color: #f6f9ff;
+    color: #4154f1;
+}

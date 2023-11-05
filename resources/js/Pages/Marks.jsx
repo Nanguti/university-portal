@@ -57,7 +57,7 @@ const Marks = ({ auth, marks }) => {
                                 </thead>
                                 <tbody>
                                     {marks.map((mks) => (
-                                        <tr>
+                                        <tr key={mks.id}>
                                             <th scope="row">{mks.id}</th>
                                             <td>{mks.unit.name}</td>
                                             <td>{mks.component_name}</td>
