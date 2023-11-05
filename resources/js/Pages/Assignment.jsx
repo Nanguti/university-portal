@@ -52,7 +52,8 @@ const Assignment = ({ auth, assignments }) => {
                                                 <Link
                                                     key={assignment.id}
                                                     href={route(
-                                                        "assignment.details"
+                                                        "assignment.details",
+                                                        { id: assignment.id }
                                                     )}
                                                     className="list-group-item list-group-item-action"
                                                 >

@@ -22,10 +22,10 @@ class AssignmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Assignment $assignment)
+    public function show($id)
     {
 
-        $assignment = Assignment::find($assignment);
+        $assignment = Assignment::find($id);
         return Inertia::render('AssignmentDetail', ['assignment'=>$assignment]);
     }
 

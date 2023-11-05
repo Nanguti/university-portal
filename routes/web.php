@@ -33,6 +33,6 @@ Route::middleware(['auth:student', 'verified'])->group(function () {
     Route::get('/marks', [GradeController::class, 'getMarks'])->name('student.marks');
     Route::get('/announcements', [AnnouncementController::class, 'index']);
     Route::get('/assignment', [AssignmentController::class, 'index'])->name('student.assignment');
-    Route::get('/assignment/details', [AssignmentController::class, 'show'])->name('assignment.details');
+    Route::get('/assignment/details/{id}', [AssignmentController::class, 'show'])->name('assignment.details');
 });
 require __DIR__.'/auth.php';

@@ -1,7 +1,8 @@
 import React from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
-const AssignmentDetail = ({ auth }) => {
+const AssignmentDetail = ({ auth, assignment }) => {
+    console.log(assignment);
     return (
         <>
             <AuthenticatedLayout
