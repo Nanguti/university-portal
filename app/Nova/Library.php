@@ -58,7 +58,7 @@ class Library extends Resource
                         'no' => 'No'
                     ]
                     ),
-            Textarea::make('digital_links')->required(),
+            Textarea::make('Digital links')->required(),
         ];
     }
 
