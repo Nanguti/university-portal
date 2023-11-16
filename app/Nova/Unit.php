@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -47,6 +48,7 @@ class Unit extends Resource
             Text::make('Name')->required(),
             BelongsTo::make('Course'),
             Text::make('Code')->required(),
+            BelongsToMany::make('Students')
         ];
     }
 

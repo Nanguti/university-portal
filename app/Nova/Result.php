@@ -23,7 +23,10 @@ class Result extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public function title()
+    {
+        return __("Student");
+    }
 
     /**
      * The columns that should be searched.
