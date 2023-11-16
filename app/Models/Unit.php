@@ -16,5 +16,9 @@ class Unit extends Model
     public function course(){
         return $this->belongsTo(Course::class);
     }
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
     
 }

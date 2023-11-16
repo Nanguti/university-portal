@@ -3,7 +3,10 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Result extends Resource
@@ -28,7 +31,7 @@ class Result extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','unit_id','student_id','total_marks','grade','remarks',
     ];
 
     /**
@@ -41,6 +44,16 @@ class Result extends Resource
     {
         return [
             ID::make()->sortable(),
+            BelongsTo::make('Unit')
+                ->readonly(),
+            BelongsTo::make('Student')
+                ->readonly(),
+            Number::make('Total Marks')
+                ->readonly(),
+            Text::make('Grade')
+                ->readonly(),
+            Text::make('Remarks')
+                ->readonly(),
         ];
     }
 

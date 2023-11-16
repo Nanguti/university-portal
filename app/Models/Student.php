@@ -16,6 +16,10 @@ class Student extends Model implements Authenticatable
     {
         return $this->hasMany(Marks::class);
     }
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 
     public function batch()
     {
@@ -33,6 +37,9 @@ class Student extends Model implements Authenticatable
     public function getAward($student) {
         $award = Award::getAwardForStudent($student);
         return $award['award'];
+    }
+    public function units() {
+        return $this->belongsToMany(Unit::class);
     }
 
 }

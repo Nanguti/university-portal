@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Actions\ExportAsCsv;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -62,10 +63,12 @@ class Student extends Resource
                     'Diploma' => 'Diploma',
                     'Certificate' => 'Certificate'
                 ]),
+            BelongsToMany::make('Units'),
+            HasMany::make("Results"),
             HasMany::make("Marks", 'marks', Marks::class),
             Text::make('Award')->exceptOnForms()->resolveUsing(function () {
-            return $this->getAward($this);
-        })->hideFromIndex(),
+                return $this->getAward($this);
+            })->hideFromIndex(),
         ];
     }
 

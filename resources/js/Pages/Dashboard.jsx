@@ -8,7 +8,6 @@ export default function Dashboard({
     assignments,
     announcements,
 }) {
-    console.log(assignments);
     const student_announcements = announcements.data;
 
     return (
@@ -139,7 +138,9 @@ export default function Dashboard({
                                     </h5>
                                     {assignments.map((assignment) => (
                                         <Link
-                                            href={route("assignment.details")}
+                                            href={route("assignment.details", {
+                                                id: assignment.id,
+                                            })}
                                             key={assignment.id}
                                             className="activity"
                                         >
