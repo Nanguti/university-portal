@@ -53,7 +53,8 @@ class Student extends Resource
             Text::make('Last Name')->required(),
             Text::make('Email')->required(),
             Text::make('Student ID')->required(),
-            BelongsTo::make('Course')->required(),
+            BelongsTo::make('Course')->required()
+                ->searchable(),
             BelongsTo::make('Batch')->required(),
             Select::make('Program Level')
                 ->options([
@@ -63,7 +64,8 @@ class Student extends Resource
                     'Diploma' => 'Diploma',
                     'Certificate' => 'Certificate'
                 ]),
-            BelongsToMany::make('Units'),
+            BelongsToMany::make('Units')
+                ->searchable(),
             HasMany::make("Results"),
             HasMany::make("Marks", 'marks', Marks::class),
             Text::make('Award')->exceptOnForms()->resolveUsing(function () {
